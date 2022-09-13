@@ -17,5 +17,9 @@ public interface IProductService {
 	Product updateProduct(Product product,Integer Id);
 	
 	public void deleteProduct(Integer Id);
+	
+	//my implementation for delete all method
+	public void deleteAllProducts();
+	
 
 }

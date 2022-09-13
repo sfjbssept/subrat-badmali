@@ -61,6 +61,12 @@ public ResponseEntity<Product> deleteProduct(@PathVariable Integer Id){
 		
 	return responseEntity;
 	}
+//my Implementation
+@DeleteMapping("/delproducts")
+public ResponseEntity deleteAll() {
+    productService.deleteAllProducts();
+    return ResponseEntity.ok("Successfully_Deleted");
+}
 }
 		
 		

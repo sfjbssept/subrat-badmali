@@ -54,5 +54,12 @@ public class ProductServiceImpl implements IProductService{
 	productRepository.deleteById(Id);
 		
 	}
+//my implementation
+	@Override
+	public void deleteAllProducts() {
+		productRepository.deleteAll();
+		
+		
+	}
 
 }
