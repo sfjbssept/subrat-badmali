@@ -42,7 +42,7 @@ public class MessagingConfig {
 	
 	@Bean
 	public AmqpTemplate template(ConnectionFactory connectionFactory) {
-		final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
+		final RabbitTemplate rabbitTemplate = new RabbitTemplate((org.springframework.amqp.rabbit.connection.ConnectionFactory) connectionFactory);
 		rabbitTemplate.setMessageConverter(converter());
 		return rabbitTemplate;
 		
