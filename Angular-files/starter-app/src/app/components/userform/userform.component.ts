@@ -1,25 +1,29 @@
 import { Component, OnInit } from '@angular/core';
+import Student from 'src/app/Entity/Student';
+import { StudentsService } from 'src/app/Services/students.service';
 
 @Component({
   selector: 'app-userform',
   templateUrl: './userform.component.html',
-  styleUrls: ['./userform.component.css']
+  styleUrls: ['./userform.component.css'],
 })
 export class UserformComponent implements OnInit {
- 
- 
-  username:String= "";
-  age:number=0;
-  title = 'hello world';
-  desc:String = "You use the Angular CLI to create projects, generate application and library code, and perform a variety of ongoing development tasks such as testing, bundling, and deployment"
+  student: Student = new Student();
+
   save() {
-    console.log("the user's name is " + this.username + " whos age is "+ this.age);
+    const observables = this.studentService.createStudent(this.student);
+    observables.subscribe(
+      (response: any) => {
+        console.log(response);
+      },
+      function (error) {
+        console.log(error);
+        alert('Something went wrong try again!');
+      }
+    );
   }
 
+  constructor(public studentService: StudentsService) {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
